@@ -54,3 +54,15 @@
 
     };
 })(jQuery);
+
+//Types.js 服务支持
+setTimeout(function(){
+        $(".geekpie").typed({
+            strings: ["上海科技大学GeekPie社团"],
+            typeSpeed: 30, // typing speed
+            backDelay: 750, // pause before backspacing
+            loop: true, // loop on or off (true or false)
+            loopCount: false, // number of loops, false = infinite
+            callback: function(){ } // call function after typing is done
+        });
+    }, 0);

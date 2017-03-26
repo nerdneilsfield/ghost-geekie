@@ -1,27 +1,103 @@
-{{!< default}}
-{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
-{{!-- The big featured header --}}
-<header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
-    <nav class="main-nav overlay clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
-    </nav>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">{{@blog.title}}</h1>
-            <h2 class="page-description">{{@blog.description}}</h2>
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" /> {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {{!-- Brand icon --}}
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}"> {{!-- Styles'n'Scripts --}} {{!--
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400"
+    />--}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/index.css"}}" /> {{!--
+    <link href="{{asset " css/prism.css "}}" rel="stylesheet" />--}}
+    {{!--jquery.slides.min.js--}} {{!-- Ghost outputs important style and meta data with this tag --}} {{ghost_head}}
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="poster-box">
+        <div id="lineDrawing">
+            <svg viewBox="0 0 315.88 82.77">
+                <title>GeekpieLogo</title>
+                <g class="texts">
+                    <path class="cls-1" d="M56.83,65.93H42.45A13.89,13.89,0,0,1,28.11,51.62V30.91a13.7,13.7,0,0,1,4.68-10.69,14.26,14.26,0,0,1,9.67-3.69H56.31v2.81H42.45a11.3,11.3,0,0,0-7.77,3,10.84,10.84,0,0,0-3.76,8.54V51.62a11.24,11.24,0,0,0,11.53,11.6h11.6V40.05H46.78V37.27H56.83Z"
+                    />
+                    <path class="cls-1" d="M93.15,50.46H72.41v3.76q0,5.56,2.07,7.45,1.69,1.55,6.12,1.55h12v2.71h-12q-5.52,0-8-2.21-3-2.71-3-9.49V43.88a11.78,11.78,0,1,1,23.55,0Zm-2.81-2.81V43.88a8.6,8.6,0,0,0-2.64-6.36,8.48,8.48,0,0,0-6.33-2.64A8.6,8.6,0,0,0,75,37.52a8.73,8.73,0,0,0-2.6,6.36v3.76Z"
+                    />
+                    <path class="cls-1" d="M129.43,50.46H108.69v3.76q0,5.56,2.07,7.45,1.69,1.55,6.12,1.55h12v2.71h-12q-5.52,0-8-2.21-3-2.71-3-9.49V43.88a11.78,11.78,0,1,1,23.55,0Zm-2.81-2.81V43.88A8.6,8.6,0,0,0,124,37.52a8.48,8.48,0,0,0-6.33-2.64,8.6,8.6,0,0,0-6.36,2.64,8.73,8.73,0,0,0-2.6,6.36v3.76Z"
+                    />
+                    <path class="cls-1" d="M166,64.8l-2.57,1.05L153.3,45.75,145,49.89V65.47h-2.81V17.06H145V46.8L164.52,37l1.16,2.57-9.88,4.92Z"
+                    />
+                    <path class="cls-1" d="M207.16,30.91q0,8.09-5.48,11.78a16.64,16.64,0,0,1-9.53,2.57h-10.9V65.47h-2.81V16.53h13.71a16.52,16.52,0,0,1,9.53,2.64Q207.16,22.93,207.16,30.91Zm-2.78,0q0-6.5-4.25-9.39a13.75,13.75,0,0,0-8-2.18h-10.9v23.1h10.9a13.89,13.89,0,0,0,8-2.11Q204.38,37.52,204.38,30.91Z"
+                    />
+                    <path class="cls-1" d="M222.74,21.38h-2.81V17.06h2.81Zm0,44.09h-2.81V32.6h2.81Z" />
+                    <path class="cls-1" d="M259,50.46H238.27v3.76q0,5.56,2.07,7.45,1.69,1.55,6.12,1.55h12v2.71h-12q-5.52,0-8-2.21-3-2.71-3-9.49V43.88a11.78,11.78,0,1,1,23.55,0Zm-2.81-2.81V43.88a8.6,8.6,0,0,0-2.64-6.36,8.48,8.48,0,0,0-6.33-2.64,8.6,8.6,0,0,0-6.36,2.64,8.73,8.73,0,0,0-2.6,6.36v3.76Z"
+                    />
+                </g>
+                <g class="lines">
+                    <path class="cls-2" d="M254.62,80.77H11a9,9,0,0,1-9-9V11a9,9,0,0,1,9-9H280.6C299,2,313.88,18.38,313.88,38.58v42.2h-7.51"
+                    />
+                    <rect class="cls-3" x="264.02" y="70.8" width="32.98" height="4.06" />
+                </g>
+            </svg>
         </div>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
-</header>
+    <div class="title-postion">
+        <span id="title-delay">
+        <p class="wearegeekpie"> </p>
+        </span>
+    </div>
+    <div class="text-main">
 
-{{!-- The main content area on the homepage --}}
-<main id="content" class="content" role="main">
+        <p style="font-size: 12.5px;">Geek Pie 创立于 2014 年，伴随这个年轻的大学成长。</br>我们是 Geek Pie ，一个非典高校的非典型人类聚集群。我们爱 Coding 也爱 Hacking ，爱 Creating 也爱 Sleeping 。
+            </br>我们致力于开源共享与开发，创意创造与极客风尚。</br>我们不是纯粹的学生组织，我们只是纯粹的 hacker 。</br>我们以常规活动为载体，却也致力于建立以项目小组为核心。</br>这里是大家的自留地，也是创意的迸发点。
+       </p>
 
-    {{!-- The tag below includes the post loop - partials/loop.hbs --}}
-    {{> "loop"}}
+    </div>
+    <div class="tags" style="text-align: center">
+        <a href="/tag/Teams">
+            <div class="contant-btn" style="display:inline">
+            &nbsp Teams &nbsp
+            </div>
+        </a>
+        &nbsp
+        <a href="/tag/news">
+            <div class="contant-btn" style="display:inline">
+            &nbsp News &nbsp
+            </div>
+        </a>
+        &nbsp
+        <a href="/tag/projects">
+            <div class="contant-btn" style="display:inline">
+            &nbsp Projects &nbsp
+            </div>
+        </a>
+        &nbsp
+        <a href="/tag/activities">
+            <div class="contant-btn" style="display:inline">
+            &nbsp Activities &nbsp
+            </div>
+        </a>
+        &nbsp
+        <a href="/tag/blogs">
+            <div class="contant-btn" style="display:inline">
+           &nbsp Blogs &nbsp
+            </div>
+        </a>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-text">© 2014-{{date format="YYYY"}} 上海科技大学GeekPie社团</div>
+</footer>
+<script type="text/javascript" src="{{asset "js/jquery-1.12.0.min.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/typed.min.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/main.js"}}"></script>
 
-</main>
+</body>

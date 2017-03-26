@@ -1,8 +1,8 @@
 {
-    "name": "casper",
-    "description": "The default personal blogging theme for Ghost. Beautiful, minimal and responsive.",
-    "demo": "https://demo.ghost.io",
-    "version": "1.3.6",
+    "name": "geekpie",
+    "description": "Geekpie官网专属ghost主题",
+    "demo": "https://geekpie.org",
+    "version": "1.0.1",
     "engines": {
         "ghost": ">=0.9.0 <1.0.0"
     },
@@ -12,9 +12,9 @@
         "mobile": "assets/screenshot-mobile.jpg"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Dengqi",
+        "email": "dengqi@dengqi.org",
+        "url": "https://dengqi.org"
     },
     "gpm": {
         "type": "theme",
@@ -29,8 +29,8 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Casper.git"
+        "url": "https://github.com/nerdneilsfile/ghost-geekpie"
     },
-    "bugs": "https://github.com/TryGhost/Casper/issues",
-    "contributors": "https://github.com/TryGhost/Casper/graphs/contributors"
+    "bugs": "https://github.com/nerdneilsfile/ghost-geekpie/issues",
+    "contributors": "https://github.com/nerdneilsfile/ghost-geekpie/contributors"
 }
